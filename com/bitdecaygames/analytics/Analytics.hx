@@ -1,4 +1,4 @@
-package analytics;
+package com.bitdecaygames.analytics;
 
 import net.lion123dev.GameAnalytics;
 import net.lion123dev.events.Events.GAPlatform;
