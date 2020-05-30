@@ -9,7 +9,7 @@ class Analytics {
 	public static function Instance():GameAnalytics {
 		if (ga == null) {
 			trace("Analytics not init'ed. Creating Sandbox instance");
-			Init("5c6bcb5402204249437fb5a7a80a4959", "16813a12f718bc5c620f56944e1abc3ea13ccbac");
+			Init("5c6bcb5402204249437fb5a7a80a4959", "16813a12f718bc5c620f56944e1abc3ea13ccbac", true);
 		}
 
 		return ga;
@@ -26,13 +26,13 @@ class Analytics {
 		Instance().ForcePost();
 	}
 
-	public static function Init(gameKey:String, secret:String, sandbox:Bool = true) {
+	public static function Init(gameKey:String, secret:String, sandbox:Bool) {
 		if (ga != null) {
 			trace("already initialized. this call will do nothing");
 			return;
 		}
 
-		ga = new GameAnalytics(gameKey, secret, false);
+		ga = new GameAnalytics(gameKey, secret, sandbox);
 
 		ga.Init(onSuccess, onFail, GAPlatform.WINDOWS, GAPlatform.WINDOWS + "10", "unknown", "unknown");
 		ga.StartPosting();
