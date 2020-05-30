@@ -1,0 +1,14 @@
+{
+	"name" : "analytics",
+	"url" : "https://github.com/bitDecayGames/Analytics",
+	"license" : "MIT",
+	"tags": ["analytics"],
+	
+    "description" : "Simple wrapper around the gameanalytics package",
+    "version" : "0.1.0-alpha",
+	"releasenote" : "Initial attempt",
+	"contributors" : ["MondayHopscotch"],
+    "dependencies" : {
+		"gameanalytics": "0.2.0"
+	}
+}
