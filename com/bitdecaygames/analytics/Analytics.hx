@@ -26,7 +26,12 @@ class Analytics {
 		Instance().ForcePost();
 	}
 
-	private static function Init(gameKey:String, secret:String, sandbox:Bool = true) {
+	public static function Init(gameKey:String, secret:String, sandbox:Bool = true) {
+		if (ga != null) {
+			trace("already initialized. this call will do nothing");
+			return;
+		}
+
 		ga = new GameAnalytics(gameKey, secret, false);
 
 		ga.Init(onSuccess, onFail, GAPlatform.WINDOWS, GAPlatform.WINDOWS + "10", "unknown", "unknown");
