@@ -32,12 +32,17 @@ class Analytics {
 			return;
 		}
 
+		trace("init'ing analytics");
 		ga = new GameAnalytics(gameKey, secret, sandbox);
 
-		ga.Init(onSuccess, onFail, GAPlatform.WINDOWS, GAPlatform.WINDOWS + "10", "unknown", "unknown");
+		ga.Init(onSuccess, onFail, GAPlatform.WINDOWS, GAPlatform.WINDOWS + " 10", "unknown", "unknown");
+
+		ga.OnSubmitFail = onFail;
+		ga.OnSubmitSuccess = onSuccess;
 		ga.StartPosting();
 
 		setExitHandler(function() {
+			trace("closing down analytics");
 			Close();
 		});
 	}
@@ -45,11 +50,13 @@ class Analytics {
 	// Now we need to initialize it with success and fail callbacks, platform, os version, device and manufacturer. Some of these parameters may be removed later and auto generated instead.
 	private static function onSuccess():Void {
 		// Success callback is called when init request return success.
+		trace("game analytics request sucessful");
 	}
 
 	private static function onFail(error:String):Void {
 		// Fail callback basically means that GameAnalytics can't work right now. Offline event caching is not yet available.
 		// String parameter may contain useful information on why fail happened
+		trace("game analytics experienced request failure");
 		trace(error);
 	}
 }
