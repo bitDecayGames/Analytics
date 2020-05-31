@@ -9,6 +9,7 @@
 	"releasenote" : "Initial attempt",
 	"contributors" : ["MondayHopscotch"],
     "dependencies" : {
-		"gameanalytics": "0.2.0"
+		"gameanalytics": "0.2.0",
+		"haxe-concurrent": "3.0.0"
 	}
 }
